@@ -13,8 +13,8 @@ FetchContent_Declare(SFML
 FetchContent_MakeAvailable(SFML)
 # Specify the directory containing the source files
 set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
-
 file(GLOB SOURCES "${SOURCE_DIR}/*.cpp" "${SOURCE_DIR}/*.hpp")
 
+
 add_executable(ado ${SOURCES})
-target_link_libraries(ado PRIVATE ${SOURCE_DIR} SFML::Graphics )
+target_link_libraries(ado PRIVATE SFML::Graphics )
