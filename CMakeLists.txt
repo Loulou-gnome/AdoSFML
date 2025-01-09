@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.28)
-project(CMakeSFMLProject LANGUAGES CXX)
+project(Ado LANGUAGES CXX)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
@@ -11,6 +11,10 @@ FetchContent_Declare(SFML
     EXCLUDE_FROM_ALL
     SYSTEM)
 FetchContent_MakeAvailable(SFML)
+# Specify the directory containing the source files
+set(SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
-add_executable(main src/main.cpp)
-target_link_libraries(main PRIVATE SFML::Graphics)
+file(GLOB SOURCES "${SOURCE_DIR}/*.cpp" "${SOURCE_DIR}/*.hpp")
+
+add_executable(ado ${SOURCES})
+target_link_libraries(ado PRIVATE ${SOURCE_DIR} SFML::Graphics )
